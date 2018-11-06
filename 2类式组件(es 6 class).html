@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+	<script type="text/babel">
+		class Hello extends React.Component{
+			constructor(props){
+				super(props)
+			}
+			render() {
+		    return (<h1>Hello, 函数式组件</h1>);
+		  }
+		}
+		{/*这必须是组件标签*/}
+		ReactDOM.render(<Hello/>, document.getElementById('app'));
+	</script>
+	<div id="app">
+		
+	</div>
+</body>
+</html>

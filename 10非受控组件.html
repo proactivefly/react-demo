@@ -12,22 +12,18 @@
   class Clock extends React.Component{
     constructor(props){
       super(props);
-      this.state = {
-        c:'',
-        items:[1,2,3,4,5],
-      };
-      this.changeValue=this.changeValue.bind(this)
+      this.state=({
+        input:''
+      })
     }
-    changeValue(event){
-      console.log(event)
-      this.setState({c: event.target.value});
+    componentDidMount(){
     }
     render(){
       return(
         <div>
-          <h1>Hello, world!</h1>
-          请输入：<input type="text" value={this.state.c} onChange={this.changeValue}/>
-          <p>{this.state.c}</p>
+            我的名字是：
+          <input type="text" defaultValue="BOSS" ref={(input)=>{this.input=input}}/>
+            <p>{this.input}</p>
         </div>
       )
     }

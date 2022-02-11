@@ -49,7 +49,9 @@ function Demo(){
 	const [count,setCount] = React.useState(0)
 	const myRef = React.useRef()
 
+	// [] 时仅执行一次
 	React.useEffect(()=>{
+		console.log("听说挂在的时候只执行一次，相当于从componentDidMount")
 		let timer = setInterval(()=>{
 			setCount(count => count+1 )
 		},1000)

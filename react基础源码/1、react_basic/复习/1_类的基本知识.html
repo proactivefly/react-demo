@@ -27,7 +27,9 @@
 				console.log(`我叫${this.name}，我年龄是${this.age}`);
 			}
 		}
+		const p= new Person('丽燕',27)
 
+		console.log('person 的实例对象',p)
 		//创建一个Student类，继承于Person类
 		class Student extends Person {
 			constructor(name,age,grade){
@@ -51,7 +53,7 @@
 			constructor(name,price){
 				this.name = name
 				this.price = price
-				// this.wheel = 4
+				// this.wheel = 4  
 			}
 			//类中可以直接写赋值语句,如下代码的含义是：给Car的实例对象添加一个属性，名为a，值为1
 			a = 1

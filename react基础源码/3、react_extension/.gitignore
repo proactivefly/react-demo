@@ -1,0 +1,8 @@
+node_modules
+
+src/.umi
+
+
+/.yarn-error.log
+/.vscode
+/yarn-error.log

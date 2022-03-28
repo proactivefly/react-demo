@@ -26,7 +26,6 @@ class Count extends Component {
 	//异步加
 	incrementAsync = () => {
 		const { value } = this.selectNumber
-		console.log('props————————————', this.props)
 		this.props.asyncIncrement(value * 1)
 	}
 	render() {

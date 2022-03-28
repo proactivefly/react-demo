@@ -4,4 +4,5 @@
 export const INCREMENT = 'increment'
 export const DECREMENT = 'decrement'
 export const ADD_PERSON = 'add_person'
-export const ASYNC_INCREMENT='async_increment'
+
+export const ASYNC_INCREMENT ='async_increment'

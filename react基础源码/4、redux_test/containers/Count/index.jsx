@@ -3,32 +3,39 @@ import React, { Component } from 'react'
 import {
 	increment,
 	decrement,
-	asyncIncrement
+	incrementAsync
 } from '../../redux/actions/count'
 //引入connect用于连接UI组件与redux
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 //定义UI组件
 class Count extends Component {
 
-	state = { carName: '奔驰c63' }
+	state = {carName:'奔驰c63'}
 
 	//加法
-	increment = () => {
-		const { value } = this.selectNumber
-		this.props.increment(value * 1)
+	increment = ()=>{
+		const {value} = this.selectNumber
+		this.props.increment(value*1)
 	}
 	//减法
-	decrement = () => {
-		const { value } = this.selectNumber
-		this.props.decrement(value * 1)
+	decrement = ()=>{
+		const {value} = this.selectNumber
+		this.props.decrement(value*1)
+	}
+	//奇数再加
+	incrementIfOdd = ()=>{
+		const {value} = this.selectNumber
+		if(this.props.count % 2 !== 0){
+			this.props.increment(value*1)
+		}
 	}
 	//异步加
-	incrementAsync = () => {
-		const { value } = this.selectNumber
-		console.log('props————————————', this.props)
-		this.props.asyncIncrement(value * 1)
+	incrementAsync = ()=>{
+		const {value} = this.selectNumber
+		this.props.incrementAsync(value*1,500)
 	}
+
 	render() {
 		//console.log('UI组件接收到的props是',this.props);
 		return (
@@ -42,6 +49,7 @@ class Count extends Component {
 				</select>&nbsp;
 				<button onClick={this.increment}>+</button>&nbsp;
 				<button onClick={this.decrement}>-</button>&nbsp;
+				<button onClick={this.incrementIfOdd}>当前求和为奇数再加</button>&nbsp;
 				<button onClick={this.incrementAsync}>异步加</button>&nbsp;
 			</div>
 		)
@@ -51,13 +59,9 @@ class Count extends Component {
 //使用connect()()创建并暴露一个Count的容器组件
 export default connect(
 	state => ({
-		count: state.count,
-		personCount: state.persons.length,
+		count:state.count,
+		personCount:state.persons.length
 	}),
-	() => ({
-		increment,
-		decrement,
-		asyncIncrement
-	})
+	{increment,decrement,incrementAsync}
 )(Count)
 

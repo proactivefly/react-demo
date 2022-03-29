@@ -53,10 +53,10 @@ export default connect(
 		count: state.count,
 		personCount: state.persons.length,
 	}),
-	() => ({
+	{
 		increment,
 		decrement,
 		asyncIncrement
-	})
+	}
 )(Count)
 
